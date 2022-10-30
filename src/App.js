@@ -1,12 +1,10 @@
 import './App.css';
-// eslint-disable-next-line
-import 'antd/dist/antd.css';
-import SidebarLayout from './layouts/SidebarLayout';
+import MainLayout from './layouts/MainLayout';
 
 function App() {
   return (
     <>
-      <SidebarLayout/>
+      <MainLayout/>
     </>
   );
 }
