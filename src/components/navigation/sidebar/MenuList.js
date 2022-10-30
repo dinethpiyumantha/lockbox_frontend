@@ -1,21 +1,18 @@
 import {
-    DesktopOutlined,
-    FileOutlined,
-    PieChartOutlined,
-    TeamOutlined,
+    MessageFilled,
+    FolderOpenFilled,
+    SettingFilled,
     UserOutlined,
   } from '@ant-design/icons';
 
 export const menuitems = [
-    getItem('Option 1', '1', <PieChartOutlined />),
-    getItem('Option 2', '2', <DesktopOutlined />),
-    getItem('User', 'sub1', <UserOutlined />, [
-        getItem('Tom', '3'),
-        getItem('Bill', '4'),
-        getItem('Alex', '5'),
+    getItem('Users', 'sub1', <UserOutlined />, [
+        getItem('Register', '1'),
+        getItem('View All', '2'),
     ]),
-    getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
-    getItem('Files', '9', <FileOutlined />),
+    getItem('Files', '3', <FolderOpenFilled />),
+    getItem('Messages', '4', <MessageFilled />),
+    getItem('Settings', '5', <SettingFilled />),
 ];
 
 export function getItem(label, key, icon, children) {
