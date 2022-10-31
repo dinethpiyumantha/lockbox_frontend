@@ -1,6 +1,7 @@
 import React from 'react'
 import { Layout } from 'antd'
 import TitleCard from '../components/cards/title/TitleCard';
+import Files from '../pages/files/Files';
 
 const { Content } = Layout;
 
@@ -13,6 +14,7 @@ export default function Container() {
       PaddingBottom: 30
     }}>
       <TitleCard title={"File Storage"}/>
+      <Files />
     </Content>
   )
 }

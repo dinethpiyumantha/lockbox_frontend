@@ -45,12 +45,13 @@ export default function SideBar() {
                 width: '100%',
                 marginTop: 30
             }} />
-            <Menu  theme="light" defaultSelectedKeys={['1']} mode="inline" items={menuitems} style={{
-                transform: 'translate(0, -50%)',
-                top: '20%',
-                position: 'relative',
-                zIndex: 1000
-            }} />
+            <Menu  theme="light" defaultSelectedKeys={['1']} mode="inline" items={menuitems} 
+                style={{
+                    transform: 'translate(0, -50%)',
+                    top: '20%',
+                    position: 'relative',
+                    zIndex: 1000
+                }} />
             { !collapsed && <p style={{
                 position: 'relative',
                 padding: 20,
