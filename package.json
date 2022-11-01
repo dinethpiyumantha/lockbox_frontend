@@ -8,6 +8,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.23.6",
+    "craco-less": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
@@ -17,13 +18,14 @@
     "node": "16.x"
   },
   "scripts": {
-    "cstart": "craco start",
-    "cbuild": "craco build",
-    "ctest": "craco test",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject",
+    "cstart": "react-scripts start",
+    "cbuild": "react-scripts build",
+    "ctest": "react-scripts test",
+    "ceject": "react-scripts eject"
   },
   "jest": {
     "transformIgnorePatterns": [
