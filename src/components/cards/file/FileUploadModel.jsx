@@ -31,12 +31,25 @@ const props = {
 export default function FileUploadModel() {
 
     const [open, setOpen] = useState(false);
+    const key = 'updatable';
 
     const showModal = () => {
         setOpen(true);
     };
 
     const hideModal = () => {
+        setOpen(false);
+    };
+
+    const openMessage = () => {
+        message.loading({ content: 'Uploading...', key });
+        setTimeout(() => {
+          message.success({ content: 'Successfully Uploaded!', key, duration: 2 });
+        }, 1000);
+      };
+
+      const onKoHideModal = async (callback) => {
+        await callback();
         setOpen(false);
     };
 
@@ -51,6 +64,7 @@ export default function FileUploadModel() {
                 title="Upload Files"
                 open={open}
                 onCancel={hideModal}
+                onOk={() => onKoHideModal(openMessage)}
                 okText="Upload"
                 width={800}
                 okButtonProps={{ icon: <CloudUploadOutlined /> }}
@@ -65,7 +79,7 @@ export default function FileUploadModel() {
                 >
                     <Dragger {...props}>
                         <p className="ant-upload-drag-icon">
-                            <InboxOutlined />
+                            <InboxOutlined style={{ color: '#014d00' }} />
                         </p>
                         <p className="ant-upload-text">Click or drag file to this area to upload</p>
                         <p className="ant-upload-hint">

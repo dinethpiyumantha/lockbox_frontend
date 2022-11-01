@@ -8,8 +8,8 @@ export default function FooterBar() {
   return (
     <Footer 
       style={{
-        background: '#202124',
-        color: '#ffffff',
+        background: '#111111',
+        color: '#c2bebb',
         textAlign: 'right'
       }}>
       { Constants.COPYRIGHT }

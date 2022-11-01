@@ -1,4 +1,4 @@
-import './App.css';
+import './App.less';
 import MainLayout from './layouts/MainLayout';
 
 function App() {
