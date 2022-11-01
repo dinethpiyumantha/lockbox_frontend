@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { Button, Card, Input } from 'antd'
+import { Button, Card, Input, Space } from 'antd'
 import {
   AppstoreFilled,
   UnorderedListOutlined,
 } from '@ant-design/icons'
 import FileUploadModel from '../../components/cards/file/FileUploadModel';
+import FileCard from '../../components/cards/file/FileCard';
 
 const { Search } = Input;
 
@@ -46,9 +47,12 @@ export default function Files() {
 
       </div>
       <Card style={{
-        height: '66vh'
+        height: '66vh',
       }}>
-
+        <Space wrap direction={thumbnail ? 'horizontal' : 'vertical'} style={{ position: 'relative', width: '100% '}}>
+          <FileCard thumbnail={thumbnail} />
+          <FileCard thumbnail={thumbnail} />
+        </Space>
       </Card>
     </>
   )
