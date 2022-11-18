@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Card, Input, Space } from 'antd'
 import {
   AppstoreFilled,
@@ -6,6 +6,8 @@ import {
 } from '@ant-design/icons'
 import FileUploadModel from '../../components/cards/file/FileUploadModel';
 import FileCard from '../../components/cards/file/FileCard';
+import axios from 'axios';
+import APIS from '../../apis/APIS';
 
 const { Search } = Input;
 
@@ -16,6 +18,21 @@ export default function Files() {
   const onThumbnailTrigger = () => {
     setThumbnail(!thumbnail);
   }
+
+  const [data, setdata] = useState([]);
+
+    const fetchData = () => {
+        axios.get(APIS.file.GET_ALL)
+            .then(res => {
+                setdata(res.data)
+            }).catch(err => {
+                console.log("error when getting msgs "+err);
+            })
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
 
   return (
     <>
@@ -50,8 +67,11 @@ export default function Files() {
         height: '66vh',
       }}>
         <Space wrap direction={thumbnail ? 'horizontal' : 'vertical'} style={{ position: 'relative', width: '100% '}}>
-          <FileCard thumbnail={thumbnail} />
-          <FileCard thumbnail={thumbnail} />
+          { 
+          data && data.map((el , index) => (
+            <FileCard thumbnail={thumbnail} title={el.name} key={index} />
+          ))
+          }
         </Space>
       </Card>
     </>

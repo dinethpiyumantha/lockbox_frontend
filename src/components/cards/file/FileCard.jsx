@@ -5,16 +5,16 @@ import {
     FilePdfFilled,
 } from '@ant-design/icons'
 
-export default function FileCard({ thumbnail }) {
+export default function FileCard({ thumbnail, title }) {
     return (
         <>
-            {getCard(thumbnail)}
+            {getCard(thumbnail, title)}
         </>
     )
 }
 
 
-const getCard = (thumbnail) => {
+const getCard = (thumbnail, title) => {
     if (thumbnail) {
         return (
             <Card hoverable
@@ -27,7 +27,7 @@ const getCard = (thumbnail) => {
                     width: 120,
                     height: 150,
                 }}>
-                <Meta description="standard.pdf" style={{ margin: 0 }} />
+                <Meta description={title} style={{ margin: 0 }} />
             </Card>
         );
     } else {
@@ -38,7 +38,7 @@ const getCard = (thumbnail) => {
                 }}>
                 <Space>
                     <FilePdfFilled style={{ fontSize: 30, color: '#001b07' }} />
-                    <Meta description="standard.pdf" style={{ margin: 0 }} />
+                    <Meta description={title} style={{ margin: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} />
                 </Space>
             </Card>
         )

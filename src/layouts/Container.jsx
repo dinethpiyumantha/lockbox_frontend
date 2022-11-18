@@ -1,9 +1,11 @@
 import React from 'react'
 import { Layout } from 'antd'
 import TitleCard from '../components/cards/title/TitleCard';
-// import Files from '../pages/files/Files';
+import Files from '../pages/files/Files';
+import { Outlet } from 'react-router-dom';
 // import Messages from '../pages/messages/Messages';
-import ViewAllUsers from '../pages/users/ViewAllUsers';
+// import ViewAllUsers from '../pages/users/ViewAllUsers';
+// import Messages from '../pages/messages/Messages';
 
 const { Content } = Layout;
 
@@ -16,7 +18,7 @@ export default function Container() {
       PaddingBottom: 30
     }}>
       <TitleCard title={"Messages"}/>
-      <ViewAllUsers />
+      <Outlet />
     </Content>
   )
 }

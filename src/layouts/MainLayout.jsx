@@ -3,6 +3,7 @@ import { Layout } from 'antd'
 import SideBar from '../components/navigation/sidebar/SideBar'
 import FooterBar from './FooterBar'
 import Container from './Container'
+import { Outlet } from 'react-router-dom'
 
 export default function MainLayout() {
   return (
@@ -11,7 +12,7 @@ export default function MainLayout() {
     }}>
       <SideBar />
       <Layout>
-        <Container />
+        <Outlet />
         <FooterBar />
       </Layout>
     </Layout>

@@ -1,27 +1,46 @@
 import { Button, Card, List } from 'antd'
-import React from 'react'
+import React, { useState } from 'react'
 import {
     MessageFilled,
     PlusCircleFilled,
 } from '@ant-design/icons'
 import Search from 'antd/lib/input/Search';
+import axios from 'axios'
+import APIS from '../../apis/APIS';
+import { useEffect } from 'react';
 
-const data = [
-    {
-        title: 'Ant Design Title 1',
-    },
-    {
-        title: 'Ant Design Title 2',
-    },
-    {
-        title: 'Ant Design Title 3',
-    },
-    {
-        title: 'Ant Design Title 4',
-    },
-];
+// const data = [
+//     {
+//         title: 'Ant Design Title 1',
+//     },
+//     {
+//         title: 'Ant Design Title 2',
+//     },
+//     {
+//         title: 'Ant Design Title 3',
+//     },
+//     {
+//         title: 'Ant Design Title 4',
+//     },
+// ];
 
 export default function Messages() {
+
+    const [data, setdata] = useState([]);
+
+    const fetchData = () => {
+        axios.get(APIS.message.GET_ALL)
+            .then(res => {
+                setdata(res.data)
+            }).catch(err => {
+                console.log("error when getting msgs "+err);
+            })
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
     return (
         <>
         <div style={{
@@ -56,8 +75,8 @@ export default function Messages() {
                         actions={[<Button>Edit</Button>, <Button type='danger'>Delete</Button>]}>
                         <List.Item.Meta
                             avatar={<MessageFilled style={{ fontSize: 20 }} />}
-                            title={<a href="https://ant.design">{item.title}</a>}
-                            description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                            title={<a href="https://ant.design">{item.id}</a>}
+                            description={item.message}
                         />
                     </List.Item>
                 )}
